@@ -1,0 +1,6 @@
+module Pods_BS_WH_Application_BS_WH_ApplicationTests {
+  umbrella header "Pods-BS_WH_Application-BS_WH_ApplicationTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
