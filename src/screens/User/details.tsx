@@ -1,11 +1,14 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {SafeAreaView, Text, View} from 'react-native';
+import styles from './styles';
 
 function Details() {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>User Details</Text>
-    </View>
+    <SafeAreaView>
+      <View style={styles.screen}>
+        <Text>User Details</Text>
+      </View>
+    </SafeAreaView>
   );
 }
 
