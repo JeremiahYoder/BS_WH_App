@@ -16,7 +16,7 @@ function App() {
         <Stack.Screen
           name="UserList"
           component={UserList}
-          options={{title: 'User List', headerLeft: () => <NavButton />}}
+          options={{title: 'User List'}}
         />
         <Stack.Screen
           name="UserDetails"

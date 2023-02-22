@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {Button} from 'react-native';
 
-function NavigationButton() {
-  return (
-    <Button onPress={() => alert('Navigate Back')} title="<" color="#000" />
-  );
+function NavigationButton({onPress}) {
+  const _onPress = useCallback(() => {
+    if (onPress) {
+      onPress();
+    }
+  }, [onPress]);
+
+  return <Button onPress={_onPress} title="<" color="black" />;
 }
 
 export default NavigationButton;
