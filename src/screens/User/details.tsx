@@ -1,12 +1,21 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import styles from './styles';
 
 import UserData from './data.json';
 
-const currUser = UserData[1];
+function Details({route}) {
+  const currUser = useMemo(() => {
+    if (route.params.id) {
+      return UserData[route.params.id - 1]; // temp
+    }
+  }, [route.params]);
 
-function Details() {
+  if (!currUser) {
+    console.log('User not found::', route.params);
+    return null;
+  }
+
   return (
     <SafeAreaView style={[styles.screen, {justifyContent: 'flex-start'}]}>
       <View style={{width: '100%', borderColor: 'blue', borderWidth: 1}}>

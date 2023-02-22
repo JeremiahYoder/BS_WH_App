@@ -7,7 +7,7 @@ const Stack = createNativeStackNavigator();
 import UserList from './User/list';
 import UserDetails from './User/details';
 
-import NavButton from '../components/headerLeftButton';
+// import NavButton from '../components/headerLeftButton';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Stack.Screen
           name="UserDetails"
           component={UserDetails}
-          options={{title: 'User Details', headerLeft: () => <NavButton />}}
+          options={{title: 'User Details'}}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -15,7 +15,7 @@ function List({navigation}) {
     console.log('ITEM::', item);
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate('UserDetails', {params: {id: 1}})}
+        onPress={() => navigation.navigate('UserDetails', {id: item.id})}
         style={{borderColor: 'red', borderWidth: 1, flex: 1}}>
         <View style={{padding: 10, marginLeft: 15}}>
           <Text style={[styles.text, styles.bold]}>{item.name}</Text>
