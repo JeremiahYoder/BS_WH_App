@@ -2,14 +2,19 @@ import React, {useMemo} from 'react';
 import {SafeAreaView, Text, View} from 'react-native';
 import styles from './styles';
 
-import UserData from './data.json';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../redux/store';
+
+// import UserData from './data.json';
 
 function Details({route}) {
+  const {users, detailId} = useSelector((state: RootState) => state.user);
+
   const currUser = useMemo(() => {
-    if (route.params.id) {
-      return UserData[route.params.id - 1]; // temp
+    if (detailId) {
+      return users[detailId - 1];
     }
-  }, [route.params]);
+  }, [users, detailId]);
 
   if (!currUser) {
     console.log('User not found::', route.params);

@@ -2,17 +2,23 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export const USER_SOMETHING = 'USER_SOMETHING';
 
+import {IUsers, IUser} from './types';
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    something: 'Something',
-  },
+    users: [],
+    detailId: null,
+  } as IUsers,
   reducers: {
-    setSomething(state, action: PayloadAction<string>) {
-      state.something = action.payload;
+    setUsers(state, action: PayloadAction<IUser[]>) {
+      state.users = action.payload;
+    },
+    setUserId(state, action: PayloadAction<number | null>) {
+      state.detailId = action.payload;
     },
   },
 });
 
-export const {setSomething} = userSlice.actions;
+export const {setUsers, setUserId} = userSlice.actions;
 export default userSlice.reducer;
