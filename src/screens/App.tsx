@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import type {Node, ReactNode} from 'react';
 import {
@@ -27,8 +19,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 interface ISectionProps {
-  children?: ReactNode
-  title?: string
+  children?: ReactNode;
+  title?: string;
 }
 
 const Section = ({children, title}: ISectionProps): Node => {
