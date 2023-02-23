@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import Hyperlink from '../../components/hyperlink';
@@ -14,8 +13,8 @@ function Details() {
   }
 
   return (
-    <SafeAreaView style={[styles.screen, {justifyContent: 'flex-start'}]}>
-      <View style={{width: '100%', borderColor: 'blue', borderWidth: 1}}>
+    <SafeAreaView style={[styles.screen, styles.detailsScreen]}>
+      <View style={styles.detailsContainer}>
         <View style={[styles.DEBUG_STYLE, styles.detailSection]}>
           <Text style={[styles.headerText, styles.bold]}>
             {currentUser.name}
@@ -27,7 +26,7 @@ function Details() {
           style={[
             styles.DEBUG_STYLE,
             styles.detailSection,
-            {alignItems: 'flex-start'},
+            styles.detailsScreen,
           ]}>
           <Text style={[styles.headerText, styles.bold]}>
             Contact Information
@@ -55,14 +54,14 @@ function Details() {
           style={[
             styles.DEBUG_STYLE,
             styles.detailSection,
-            {alignItems: 'flex-start'},
+            styles.detailsScreen,
           ]}>
           <Text style={[styles.headerText, styles.bold]}>
             Other Information
           </Text>
           <Text style={[styles.text]}>User Name: {currentUser.username}</Text>
 
-          <View style={{flexDirection: 'row'}}>
+          <View style={styles.websiteWrapper}>
             <Text style={[styles.text]}>Website: </Text>
             <Hyperlink link={currentUser.website} />
           </View>

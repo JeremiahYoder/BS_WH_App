@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 import React, {useCallback, useEffect} from 'react';
 import {
   FlatList,
@@ -7,9 +6,8 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import styles from './styles';
-
 import useUser from '../../redux/User/useUser';
+import styles from './styles';
 
 function List({navigation}) {
   const {users, fetchUsers, setCurrentUserId} = useUser();
@@ -32,8 +30,8 @@ function List({navigation}) {
       <TouchableOpacity
         key={item.id}
         onPress={() => goToDetails(item.id)}
-        style={{borderColor: 'red', borderWidth: 1, flex: 1}}>
-        <View style={{padding: 10, marginLeft: 15}}>
+        style={styles.rowButton}>
+        <View style={styles.rowContainer}>
           <Text style={[styles.text, styles.bold]}>{item.name}</Text>
           <Text style={[styles.text]}>{item.email}</Text>
         </View>
@@ -48,7 +46,7 @@ function List({navigation}) {
           keyExtractor={item => item.id}
           data={Object.values(users)}
           renderItem={renderUser}
-          style={{borderColor: 'blue', borderWidth: 1, flex: 1, width: '100%'}}
+          style={styles.listStyle}
         />
       </View>
     </SafeAreaView>
