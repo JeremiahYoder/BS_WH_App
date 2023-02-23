@@ -1,5 +1,5 @@
 export interface IUser {
-  id: number;
+  id: string;
   name: string;
   username: string;
   email: string;
@@ -23,6 +23,6 @@ export interface IUser {
 }
 
 export interface IUsers {
-  users: IUser[];
-  detailId: number | null;
+  users: Record<string, IUser>;
+  detailId: number;
 }

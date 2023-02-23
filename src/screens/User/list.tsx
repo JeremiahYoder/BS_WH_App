@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useCallback, useEffect} from 'react';
 import {
   FlatList,
@@ -8,43 +9,28 @@ import {
 } from 'react-native';
 import styles from './styles';
 
-// import UserData from './data.json';
-
-import {useDispatch, useSelector} from 'react-redux';
-import {getUsers} from '../../services/api';
-import {setUsers, setUserId} from '../../redux/User/slice';
-import {RootState} from '../../redux/store';
+import useUser from '../../redux/User/useUser';
 
 function List({navigation}) {
-  const dispatch = useDispatch();
-  const {users} = useSelector((state: RootState) => state.user);
+  const {users, fetchUsers, setCurrentUserId} = useUser();
 
   useEffect(() => {
-    async function exec() {
-      let data = await getUsers();
-      if (data) {
-        dispatch(setUsers(data));
-      }
-    }
-
-    if (users && !users.length) {
-      exec();
-    }
+    fetchUsers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const goToDetails = useCallback(
     (id: string) => {
-      dispatch(setUserId(id));
+      setCurrentUserId(id);
       navigation.navigate('UserDetails');
     },
-    [dispatch, navigation],
+    [setCurrentUserId, navigation],
   );
 
   const renderUser = ({item}) => {
-    console.log('ITEM::', item);
     return (
       <TouchableOpacity
+        key={item.id}
         onPress={() => goToDetails(item.id)}
         style={{borderColor: 'red', borderWidth: 1, flex: 1}}>
         <View style={{padding: 10, marginLeft: 15}}>
@@ -59,7 +45,8 @@ function List({navigation}) {
     <SafeAreaView style={styles.screen}>
       <View style={styles.screen}>
         <FlatList
-          data={users}
+          keyExtractor={item => item.id}
+          data={Object.values(users)}
           renderItem={renderUser}
           style={{borderColor: 'blue', borderWidth: 1, flex: 1, width: '100%'}}
         />

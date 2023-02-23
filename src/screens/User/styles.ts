@@ -23,5 +23,4 @@ export default StyleSheet.create({
     fontSize: 20,
     margin: 5,
   },
-
 });

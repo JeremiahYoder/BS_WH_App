@@ -7,8 +7,6 @@ const Stack = createNativeStackNavigator();
 import UserList from './User/list';
 import UserDetails from './User/details';
 
-// import NavButton from '../components/headerLeftButton';
-
 function App() {
   return (
     <NavigationContainer>
