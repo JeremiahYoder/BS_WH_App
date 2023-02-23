@@ -40,6 +40,9 @@ export default StyleSheet.create({
     alignItems: 'center',
     padding: 10,
   },
+  detailSectionAlignment: {
+    alignItems: 'flex-start',
+  },
   headerText: {
     alignSelf: 'center',
     fontSize: 20,

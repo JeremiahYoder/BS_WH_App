@@ -26,7 +26,7 @@ function Details() {
           style={[
             styles.DEBUG_STYLE,
             styles.detailSection,
-            styles.detailsScreen,
+            styles.detailSectionAlignment,
           ]}>
           <Text style={[styles.headerText, styles.bold]}>
             Contact Information
@@ -54,7 +54,7 @@ function Details() {
           style={[
             styles.DEBUG_STYLE,
             styles.detailSection,
-            styles.detailsScreen,
+            styles.detailSectionAlignment,
           ]}>
           <Text style={[styles.headerText, styles.bold]}>
             Other Information
