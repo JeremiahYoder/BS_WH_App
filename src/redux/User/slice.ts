@@ -1,12 +1,14 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {IUsers, IUser} from './types';
 
+const initialState: IUsers = {
+  users: {},
+  detailId: 0,
+};
+
 const userSlice = createSlice({
   name: 'user',
-  initialState: {
-    users: {},
-    detailId: 0,
-  } as IUsers,
+  initialState: initialState,
   reducers: {
     setUsers(state, action: PayloadAction<IUser[]>) {
       action.payload.map(user => {

@@ -1,9 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
-import styles from './styles';
-
+import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import Hyperlink from '../../components/hyperlink';
 import useUser from '../../redux/User/useUser';
+import {linkToMap} from '../../utils';
+import styles from './styles';
 
 function Details() {
   const {currentUser} = useUser();
@@ -31,13 +32,23 @@ function Details() {
           <Text style={[styles.headerText, styles.bold]}>
             Contact Information
           </Text>
-          <Text style={[styles.text]}>{currentUser.email}</Text>
-          <Text style={[styles.text]}>{currentUser.address.street}</Text>
-          <Text style={[styles.text]}>{currentUser.address.suite}</Text>
-          <Text style={[styles.text]}>
-            {currentUser.address.city} {currentUser.address.zipcode}
-          </Text>
-          <Text style={[styles.text]}>{currentUser.phone}</Text>
+
+          <Hyperlink link={currentUser.email} type={'EMAIL'} />
+
+          <TouchableOpacity
+            onPress={() =>
+              linkToMap(
+                `${currentUser.address.geo.lat},${currentUser.address.geo.lng}`,
+              )
+            }>
+            <Text style={[styles.text]}>{currentUser.address.street}</Text>
+            <Text style={[styles.text]}>{currentUser.address.suite}</Text>
+            <Text style={[styles.text]}>
+              {currentUser.address.city} {currentUser.address.zipcode}
+            </Text>
+          </TouchableOpacity>
+
+          <Hyperlink link={currentUser.phone} type={'PHONE'} />
         </View>
 
         <View
@@ -50,7 +61,11 @@ function Details() {
             Other Information
           </Text>
           <Text style={[styles.text]}>User Name: {currentUser.username}</Text>
-          <Text style={[styles.text]}>Website: {currentUser.website}</Text>
+
+          <View style={{flexDirection: 'row'}}>
+            <Text style={[styles.text]}>Website: </Text>
+            <Hyperlink link={currentUser.website} />
+          </View>
         </View>
       </View>
     </SafeAreaView>
