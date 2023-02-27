@@ -8,19 +8,25 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  rowButton: {
-    borderColor: 'red',
-    borderWidth: 1,
-  },
+  rowButton: {},
   rowContainer: {
     padding: 10,
     marginLeft: 15,
   },
   listStyle: {
-    borderColor: 'blue',
-    borderWidth: 1,
+    borderTopColor: 'black',
+    borderTopWidth: 1,
     flex: 1,
     width: '100%',
+  },
+  listContainerStyle: {
+    borderColor: 'black',
+    borderBottomWidth: 1,
+  },
+  listSeparatorStyle: {
+    borderTopColor: 'black',
+    borderTopWidth: 1,
+    height: 1,
   },
   text: {
     fontSize: 16,

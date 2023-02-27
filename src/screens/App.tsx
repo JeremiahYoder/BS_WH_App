@@ -4,6 +4,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
+import Content from '../localization/en.json';
+
 import UserList from './User/list';
 import UserDetails from './User/details';
 
@@ -14,12 +16,12 @@ function App() {
         <Stack.Screen
           name="UserList"
           component={UserList}
-          options={{title: 'User List'}}
+          options={{title: Content.listTitle}}
         />
         <Stack.Screen
           name="UserDetails"
           component={UserDetails}
-          options={{title: 'User Details'}}
+          options={{title: Content.detailsTitle}}
         />
       </Stack.Navigator>
     </NavigationContainer>

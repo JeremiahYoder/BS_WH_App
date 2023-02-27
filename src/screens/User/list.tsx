@@ -47,6 +47,10 @@ function List({navigation}) {
           data={Object.values(users)}
           renderItem={renderUser}
           style={styles.listStyle}
+          contentContainerStyle={styles.listContainerStyle}
+          ItemSeparatorComponent={() => (
+            <View style={styles.listSeparatorStyle} />
+          )}
         />
       </View>
     </SafeAreaView>

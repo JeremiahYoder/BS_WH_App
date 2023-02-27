@@ -3,6 +3,7 @@ import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 import Hyperlink from '../../components/hyperlink';
 import useUser from '../../redux/User/useUser';
 import {linkToMap} from '../../utils';
+import Content from '../../localization/en.json';
 import styles from './styles';
 
 function Details() {
@@ -29,7 +30,7 @@ function Details() {
             styles.detailSectionAlignment,
           ]}>
           <Text style={[styles.headerText, styles.bold]}>
-            Contact Information
+            {Content.detailsContactHeader}
           </Text>
 
           <Hyperlink link={currentUser.email} type={'EMAIL'} />
@@ -57,12 +58,14 @@ function Details() {
             styles.detailSectionAlignment,
           ]}>
           <Text style={[styles.headerText, styles.bold]}>
-            Other Information
+            {Content.detailsOtherInfoHeader}
           </Text>
-          <Text style={[styles.text]}>User Name: {currentUser.username}</Text>
+          <Text style={[styles.text]}>
+            {Content.username}: {currentUser.username}
+          </Text>
 
           <View style={styles.websiteWrapper}>
-            <Text style={[styles.text]}>Website: </Text>
+            <Text style={[styles.text]}>{Content.website}: </Text>
             <Hyperlink link={currentUser.website} />
           </View>
         </View>
